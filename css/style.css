@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff8f5;
+    color: #333;
+}
+
+header {
+    background: #c62828;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+nav {
+    background: #8e0000;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.hero {
+    background: #ffe0dc;
+    padding: 70px 20px;
+}
+
+h2 {
+    color: #c62828;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #c62828;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #8e0000;
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.menu-card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px #ccc;
+    transition: 0.3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.menu-card h3 {
+    margin: 12px;
+}
+
+.menu-card p {
+    color: #c62828;
+    font-weight: bold;
+}
+
+/* KERANJANG */
+
+.keranjang-container,
+.pembayaran-container {
+    background: white;
+    max-width: 700px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px #ccc;
+}
+
+.item-keranjang {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    gap: 10px;
+}
+
+.item-keranjang button {
+    margin: 3px;
+    padding: 8px 12px;
+}
+
+.jumlah {
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+#total {
+    color: #c62828;
+    margin-top: 20px;
+}
+
+/* PEMBAYARAN */
+
+.pembayaran-container {
+    margin-top: 20px;
+}
+
+.pembayaran-container input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.pembayaran-container input[type="file"] {
+    display: block;
+    margin: 15px auto;
+    padding: 10px;
+}
+
+.rekening {
+    background: #fff3e0;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    line-height: 1.8;
+}
+
+#hasil-pembayaran {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#hasil-pembayaran img {
+    max-width: 100%;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+footer {
+    background: #8e0000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.dark {
+    background: #222;
+    color: white;
+}
+
+.dark .menu-card,
+.dark .keranjang-container,
+.dark .pembayaran-container {
+    background: #444;
+    color: white;
+}
+
+.dark .hero {
+    background: #333;
+}
+
+.dark .rekening {
+    background: #555;
+}
+
+@media (max-width: 700px) {
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 7px;
+    }
+
+    .item-keranjang {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 450px) {
+    .menu-container {
+        grid-template-columns: 1fr;
+    }
+}
