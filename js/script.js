@@ -110,6 +110,7 @@ function checkout() {
     });
 }
 
+
 // KONFIRMASI PEMBAYARAN
 function konfirmasiPembayaran() {
     let nama = document.getElementById("nama-pembeli").value;
@@ -121,13 +122,18 @@ function konfirmasiPembayaran() {
         return;
     }
 
-    if (nama === "" || nomor === "") {
+    if (nama.trim() === "" || nomor.trim() === "") {
         alert("Nama dan nomor HP harus diisi!");
         return;
     }
 
     if (!file) {
         alert("Silakan upload bukti transfer!");
+        return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+        alert("File harus berupa gambar!");
         return;
     }
 
@@ -148,34 +154,40 @@ function konfirmasiPembayaran() {
 
     document.getElementById("hasil-pembayaran").innerHTML = `
         <div class="bukti-pembayaran">
-            <h2>Pesanan Berhasil Dibuat!</h2>
 
+            <h2>🎉 PEMBAYARAN BERHASIL!</h2>
+
+            <p>Terima kasih telah berbelanja!</p>
+
+            <hr>
+
+            <h3>Informasi Pembeli</h3>
             <p><b>Nama:</b> ${nama}</p>
             <p><b>Nomor HP:</b> ${nomor}</p>
+
+            <hr>
 
             <h3>Detail Pesanan</h3>
             ${detail}
 
-            <h3>Total Pembayaran:
-            Rp${total.toLocaleString("id-ID")}</h3>
+            <hr>
+
+            <h3>Total Pembayaran</h3>
+            <h2>Rp${total.toLocaleString("id-ID")}</h2>
 
             <h3>Bukti Transfer</h3>
-
             <img src="${gambar}" alt="Bukti Transfer">
 
-            <p>Status: Menunggu Verifikasi</p>
+            <h3>⏳ Menunggu Verifikasi Admin</h3>
+
+            <p>Bukti transfer berhasil diunggah.
+            Silakan tunggu pemeriksaan admin.</p>
+
         </div>
     `;
 
     alert("Bukti transfer berhasil diupload!");
 
-    // Keranjang tidak dikosongkan otomatis
+    document.getElementById("hasil-pembayaran")
+        .scrollIntoView({ behavior: "smooth" });
 }
-
-// GANTI TEMA
-function tema() {
-    document.body.classList.toggle("dark");
-}
-
-// TAMPILKAN KERANJANG SAAT WEBSITE DIBUKA
-tampilkanKeranjang();
